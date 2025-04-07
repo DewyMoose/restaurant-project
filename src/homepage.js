@@ -86,6 +86,12 @@ hoursAndLocationDiv.append(hoursDiv, locationDiv);
 hoursDiv.append(hoursTitle, hoursText);
 locationDiv.append(locationTitle, locationText);
 
+let contentDiv = document.getElementById("content");
+navBar.append(companyNameDiv, navButtons);
+
+contentDiv.append(homePageImageDiv, quoteDiv, hoursAndLocationDiv);
+homePageImageDiv.append(bbqImage);
+
 export {
   navBar,
   companyNameDiv,
@@ -94,4 +100,5 @@ export {
   bbqImage,
   quoteDiv,
   hoursAndLocationDiv,
+  buttons,
 };
