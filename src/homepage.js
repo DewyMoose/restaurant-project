@@ -43,4 +43,55 @@ let bbqImage = document.createElement("img");
 bbqImage.src = bbqPicture;
 bbqImage.alt = "Picture of BBQ";
 
-export { navBar, companyNameDiv, navButtons, homePageImageDiv, bbqImage };
+let quoteDiv = document.createElement("div");
+quoteDiv.className = "quote-div";
+
+let quote = document.createElement("h1");
+quote.className = "quote-h1";
+quote.textContent = '"SERVING THE BEST BARBECUE IN THE KNOWN UNIVERSE."';
+
+let quoteAuthor = document.createElement("h3");
+quoteAuthor.className = "quote-author";
+quoteAuthor.textContent = "-Texas Monthly";
+
+quoteDiv.append(quote, quoteAuthor);
+
+let hoursAndLocationDiv = document.createElement("div");
+hoursAndLocationDiv.className = "hours-and-location-div";
+
+let hoursDiv = document.createElement("div");
+hoursDiv.className = "hours-div";
+
+let locationDiv = document.createElement("div");
+locationDiv.className = "location-div";
+
+let hoursTitle = document.createElement("h2");
+hoursTitle.className = "hours-title";
+hoursTitle.textContent = "OUR HOURS";
+
+let hoursText = document.createElement("h4");
+hoursText.className = "hours-text";
+hoursText.textContent = "Open for lunch 6 days a week";
+
+let locationTitle = document.createElement("h2");
+locationTitle.className = "location-title";
+locationTitle.textContent = "OUR LOCATION";
+
+let locationText = document.createElement("h4");
+locationText.className = "location-text";
+locationText.textContent = "On Austin's historic East Side";
+
+hoursAndLocationDiv.append(hoursDiv, locationDiv);
+
+hoursDiv.append(hoursTitle, hoursText);
+locationDiv.append(locationTitle, locationText);
+
+export {
+  navBar,
+  companyNameDiv,
+  navButtons,
+  homePageImageDiv,
+  bbqImage,
+  quoteDiv,
+  hoursAndLocationDiv,
+};
