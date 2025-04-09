@@ -10,12 +10,11 @@ function showMenu() {
   menuTextTitle.className = "menu-text-title";
   menuTextTitle.textContent = "Menu";
 
-  let byThePoundDiv = document.createElement("div");
-  byThePoundDiv.className = "by-the-pound-div";
-
   let byThePoundTitle = document.createElement("h2");
   byThePoundTitle.className = "by-the-pound-title";
   byThePoundTitle.textContent = "BY THE POUND";
+  let byThePoundDiv = document.createElement("div");
+  byThePoundDiv.className = "by-the-pound-div";
 
   let byThePoundItemDiv = document.createElement("div");
   byThePoundItemDiv.className = "by-the-pound-item-div";
@@ -30,16 +29,33 @@ function showMenu() {
     "BEEF RIB",
   ];
   let byThePoundUL = document.createElement("ul");
-  byThePoundDiv.append(byThePoundTitle, byThePoundUL);
+  byThePoundDiv.append(byThePoundUL);
   byThePoundMenuItems.forEach((item) => {
     let listItem = document.createElement("li");
     listItem.append(item);
     byThePoundUL.append(listItem);
   });
 
+  let byThePoundPriceDiv = document.createElement("div");
+  byThePoundPriceDiv.className = "by-the-pound-price-div";
+
+  let byThePoundPrices = ["$39", "$34", "$32", "$32", "$26", "$26", "$44"];
+
+  let byThePoundPriceUL = document.createElement("ul");
+  byThePoundPrices.forEach((item) => {
+    let byThePoundPriceLI = document.createElement("li");
+    byThePoundPriceLI.append(item);
+    byThePoundPriceUL.append(byThePoundPriceLI);
+  });
+  byThePoundPriceDiv.append(byThePoundPriceUL);
+
+  let byThePoundContainer = document.createElement("div");
+  byThePoundContainer.className = "by-the-pound-container";
+  byThePoundContainer.append(byThePoundDiv, byThePoundPriceDiv);
+
   let sandwichMenu = document.createElement("h2");
-  sandwichMenu.className = "lunch-menu-title";
-  sandwichMenu.textContent = "Sandwhiches";
+  sandwichMenu.className = "sandwich-menu-title";
+  sandwichMenu.textContent = "Sandwiches";
   let sandwichMenuDiv = document.createElement("div");
   sandwichMenuDiv.className = "sandwich-menu-div";
   let sandwichMenuItems = [
@@ -57,11 +73,29 @@ function showMenu() {
   });
   sandwichMenuDiv.append(sandwichMenu, sandwichMenuUL);
 
+  let sandwichePriceDiv = document.createElement("div");
+  sandwichePriceDiv.className = "sandwich-price-div";
+
+  let sandwichPrices = ["$18.50", "$16", "$16", "$14", "$7"];
+
+  let sandwichPriceUL = document.createElement("ul");
+  sandwichPrices.forEach((item) => {
+    let byThePoundPriceLI = document.createElement("li");
+    byThePoundPriceLI.append(item);
+    sandwichPriceUL.append(byThePoundPriceLI);
+  });
+  sandwichePriceDiv.append(sandwichPriceUL);
+
+  let sandwichContainer = document.createElement("div");
+  sandwichContainer.className = "sandwich-container";
+  sandwichContainer.append(sandwichMenuDiv, sandwichePriceDiv);
+
   menuContentDiv.append(
     menuTextTitle,
-    byThePoundDiv,
-    byThePoundItemDiv,
-    sandwichMenuDiv
+    byThePoundTitle,
+    byThePoundContainer,
+    sandwichMenu,
+    sandwichContainer
   );
 }
 
