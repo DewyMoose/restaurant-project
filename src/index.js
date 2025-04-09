@@ -1,3 +1,5 @@
+//Java Script
+//-----------------------//
 import {
   navBar,
   companyNameDiv,
@@ -8,13 +10,19 @@ import {
   hoursAndLocationDiv,
   buttons,
 } from "./homepage.js";
-import "./style.css";
+import { menuContentDiv, showMenu } from "./menu.js";
 
-import { randomDiv } from "./menu.js";
+//styles
+//-----------------------//
+import "./style.css";
+import "./menu.css";
 
 let contentDiv = document.getElementById("content");
+let header = document.querySelector("header");
 
 function loadHome() {
+  menuContentDiv.remove();
+  header.append(contentDiv);
   contentDiv.innerHTML = "";
   //this is filler right now but will need to cerate own file for each page
   navBar.append(companyNameDiv, navButtons);
@@ -24,19 +32,19 @@ function loadHome() {
 }
 
 function loadMenu() {
-  contentDiv.innerHTML = "";
+  contentDiv.remove();
+  header.append(menuContentDiv);
+  menuContentDiv.innerHTML = "";
+  showMenu();
   //this is filler right now but will need to cerate own file for each page
-  contentDiv.append(randomDiv);
 }
 function loadAboutUs() {
   contentDiv.innerHTML = "";
   //this is filler right now but will need to cerate own file for each page
-  contentDiv.append(randomDiv);
 }
 function loadGallery() {
   contentDiv.innerHTML = "";
   //this is filler right now but will need to cerate own file for each page
-  contentDiv.append(randomDiv);
 }
 
 navBar.append(companyNameDiv, navButtons);
@@ -61,3 +69,5 @@ buttons.forEach((item) => {
     }
   });
 });
+
+export { contentDiv };
