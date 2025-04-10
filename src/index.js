@@ -1,28 +1,29 @@
 //Java Script
 //-----------------------//
-import {
-  navBar,
-  companyNameDiv,
-  navButtons,
-  homePageImageDiv,
-  bbqImage,
-  quoteDiv,
-  hoursAndLocationDiv,
-  buttons,
-} from "./homepage.js";
+import { createNavBar, showHomePage, homeContentDiv } from "./homepage.js";
 import { menuContentDiv, showMenu } from "./menu.js";
 import { aboutUsContentDiv, showAbout } from "./about.js";
+import { galleryContentDiv, showGallery } from "./gallery.js";
 
 //styles
 //-----------------------//
 import "./style.css";
 import "./menu.css";
 import "./about.css";
+import "./gallery.css";
+
+createNavBar();
+showHomePage();
 
 let contentDiv = document.getElementById("content");
 let body = document.querySelector("body");
 
-let contentDivArray = [contentDiv, menuContentDiv, aboutUsContentDiv];
+let contentDivArray = [
+  contentDiv,
+  menuContentDiv,
+  aboutUsContentDiv,
+  galleryContentDiv,
+];
 
 let removeContentDivs = () => {
   contentDivArray.forEach((item) => {
@@ -32,11 +33,9 @@ let removeContentDivs = () => {
 function loadHome() {
   removeContentDivs();
   body.append(contentDiv);
-  contentDiv.innerHTML = "";
-  navBar.append(companyNameDiv, navButtons);
-
-  contentDiv.append(homePageImageDiv, quoteDiv, hoursAndLocationDiv);
-  homePageImageDiv.append(bbqImage);
+  body.append(homeContentDiv);
+  homeContentDiv.innerHTML = "";
+  showHomePage();
 }
 
 function loadMenu() {
@@ -52,31 +51,22 @@ function loadAboutUs() {
   showAbout();
 }
 function loadGallery() {
-  contentDiv.innerHTML = "";
-  //this is filler right now but will need to cerate own file for each page
+  removeContentDivs();
+  body.append(galleryContentDiv);
+  galleryContentDiv.innerHTML = "";
+  showGallery();
 }
-
-navBar.append(companyNameDiv, navButtons);
-
-contentDiv.append(homePageImageDiv, quoteDiv, hoursAndLocationDiv);
-homePageImageDiv.append(bbqImage);
-
+let buttons = document.querySelectorAll("button");
 buttons.forEach((item) => {
   item.addEventListener("click", function () {
     if (item.textContent == "Home") {
       loadHome();
-      console.log("home clicked");
     } else if (item.textContent == "Menu") {
       loadMenu();
-      console.log("Menu clicked");
     } else if (item.textContent == "About Us") {
       loadAboutUs();
-      console.log("About clicked");
     } else if (item.textContent == "Gallery") {
       loadGallery();
-      console.log("Gallery clicked");
     }
   });
 });
-
-export { contentDiv };

@@ -1,9 +1,5 @@
-import { navBar, companyNameDiv, navButtons } from "./homepage.js";
-import "./style.css";
 let menuContentDiv = document.createElement("div");
 menuContentDiv.className = "menu-content-div";
-
-navBar.append(companyNameDiv, navButtons);
 
 function showMenu() {
   let menuTextTitle = document.createElement("h1");
