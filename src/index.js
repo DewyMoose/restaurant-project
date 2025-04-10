@@ -11,20 +11,28 @@ import {
   buttons,
 } from "./homepage.js";
 import { menuContentDiv, showMenu } from "./menu.js";
+import { aboutUsContentDiv, showAbout } from "./about.js";
 
 //styles
 //-----------------------//
 import "./style.css";
 import "./menu.css";
+import "./about.css";
 
 let contentDiv = document.getElementById("content");
-let header = document.querySelector("header");
+let body = document.querySelector("body");
 
+let contentDivArray = [contentDiv, menuContentDiv, aboutUsContentDiv];
+
+let removeContentDivs = () => {
+  contentDivArray.forEach((item) => {
+    item.remove();
+  });
+};
 function loadHome() {
-  menuContentDiv.remove();
-  header.append(contentDiv);
+  removeContentDivs();
+  body.append(contentDiv);
   contentDiv.innerHTML = "";
-  //this is filler right now but will need to cerate own file for each page
   navBar.append(companyNameDiv, navButtons);
 
   contentDiv.append(homePageImageDiv, quoteDiv, hoursAndLocationDiv);
@@ -32,15 +40,16 @@ function loadHome() {
 }
 
 function loadMenu() {
-  contentDiv.remove();
-  header.append(menuContentDiv);
+  removeContentDivs();
+  body.append(menuContentDiv);
   menuContentDiv.innerHTML = "";
   showMenu();
-  //this is filler right now but will need to cerate own file for each page
 }
 function loadAboutUs() {
-  contentDiv.innerHTML = "";
-  //this is filler right now but will need to cerate own file for each page
+  removeContentDivs();
+  body.append(aboutUsContentDiv);
+  aboutUsContentDiv.innerHTML = "";
+  showAbout();
 }
 function loadGallery() {
   contentDiv.innerHTML = "";
